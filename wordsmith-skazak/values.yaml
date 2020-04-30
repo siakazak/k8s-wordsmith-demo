@@ -1,0 +1,16 @@
+stackNS: default
+webName: web 
+webLabel: words-web
+webPort: 80
+webSvcPort: 8081
+webReplicas: 1
+apiName: words
+apiLabel: words-api
+apiPort: 8080
+apiSvcPort: 8080
+apiReplicas: 5
+dbName: db
+dbLabel: words-db
+dbPort: 5432
+dbSvcPort: 5432
+dbReplicas: 1

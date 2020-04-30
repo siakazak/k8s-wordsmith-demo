@@ -1,0 +1,65 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  namespace: {{ .Values.stackNS }}
+  name: {{ .Values.dbName }}
+  labels:
+    app: {{ .Values.dbLabel }}
+spec:
+  replicas: {{ .Values.dbReplicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.dbLabel }}
+    spec:
+      containers:
+      - name: {{ .Values.dbName }}
+        image: dockersamples/k8s-wordsmith-db
+        ports:
+        - containerPort: {{ .Values.dbPort }}
+          name: db
+---
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  namespace: {{ .Values.stackNS }}
+  name: {{ .Values.apiName }}
+  labels:
+    app: {{ .Values.apiLabel }}
+spec:
+  replicas: {{ .Values.apiReplicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.apiLabel }}
+    spec:
+      containers:
+      - name: {{ .Values.apiName }}
+        image: dockersamples/k8s-wordsmith-api
+        ports:
+        - containerPort: {{ .Values.apiPort }}
+          name: api
+
+---
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  namespace: {{ .Values.stackNS }}
+  name: {{ .Values.webName }}
+  labels:
+    app: {{ .Values.webLabel }}
+spec:
+  replicas: {{ .Values.webReplicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.webLabel }}
+    spec:
+      containers:
+      - name: {{ .Values.webName }}
+        image: dockersamples/k8s-wordsmith-web
+        ports:
+        - containerPort: {{ .Values.webPort }}
+          name: words-web

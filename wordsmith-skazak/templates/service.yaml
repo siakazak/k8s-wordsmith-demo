@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ .Values.stackNS }}
+  name: {{ .Values.dbName }}
+  labels:
+    app: {{ .Values.dbLabel }}
+spec:
+  ports:
+    - port: {{ .Values.dbSvcPort }}
+      targetPort: {{ .Values.dbPort }}
+      name: db
+  selector:
+    app: {{ .Values.dbLabel }}
+  clusterIP: None
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ .Values.stackNS }}
+  name: {{ .Values.apiName }}
+  labels:
+    app: {{ .Values.apiLabel }}
+spec:
+  ports:
+    - port: {{ .Values.apiSvcPort }}
+      targetPort: {{ .Values.apiPort }}
+      name: api
+  selector:
+    app: {{ .Values.apiLabel }}
+  clusterIP: None
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ .Values.stackNS }}
+  name: {{ .Values.webName }}
+  labels:
+    app: {{ .Values.webLabel }}
+spec:
+  ports:
+    - port: {{ .Values.webSvcPort }}
+      targetPort: {{ .Values.webPort }}
+      name: web
+  selector:
+    app: {{ .Values.webLabel }}
+  type: LoadBalancer
