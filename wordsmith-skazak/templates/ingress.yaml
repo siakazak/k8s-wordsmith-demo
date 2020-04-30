@@ -10,9 +10,9 @@ spec:
   tls:
   - hosts:
     - words.skazak.playpit.by
-    secretName: jenkins-tls
+    secretName: words-tls
   rules:
-  - host: words.skazak.playpit.by
+  - host: words-app.skazak.playpit.by
     http:
       paths:
       - path: /
