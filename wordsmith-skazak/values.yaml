@@ -4,6 +4,7 @@ webLabel: words-web
 webPort: 80
 webSvcPort: 8081
 webReplicas: 1
+webImage: dockersamples/k8s-wordsmith-web
 apiName: words
 apiLabel: words-api
 apiPort: 8080

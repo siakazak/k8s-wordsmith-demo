@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.dbName }}
-        image: dockersamples/k8s-wordsmith-db
+        image: "twiceaday/k8s-wordsmith-db:latest"
         ports:
         - containerPort: {{ .Values.dbPort }}
           name: db
@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.apiName }}
-        image: dockersamples/k8s-wordsmith-api
+        image: "twiceaday/k8s-wordsmith-api:latest"
         ports:
         - containerPort: {{ .Values.apiPort }}
           name: api
@@ -59,7 +59,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.webName }}
-        image: dockersamples/k8s-wordsmith-web
+        image: {{ .Values.webImage }}
         ports:
         - containerPort: {{ .Values.webPort }}
           name: words-web
