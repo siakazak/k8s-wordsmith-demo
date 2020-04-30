@@ -3,7 +3,7 @@ apiVersion: v2
 name: wordsmith-skazak
 description: A Wordsmith helm chart for kubernetes
 type: application
-version: 0.2.0
+version: 0.2.8
 maintainers:
 - name: skazak
 appVersion: 1.16.0

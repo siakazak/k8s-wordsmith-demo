@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.dbName }}
-        image: "twiceaday/k8s-wordsmith-db:latest"
+        image: {{ .Values.dbImage }}
         ports:
         - containerPort: {{ .Values.dbPort }}
           name: db
@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.apiName }}
-        image: "twiceaday/k8s-wordsmith-api:latest"
+        image: {{ .Values.apiImage }}
         ports:
         - containerPort: {{ .Values.apiPort }}
           name: api

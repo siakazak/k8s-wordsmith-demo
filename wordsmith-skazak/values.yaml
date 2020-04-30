@@ -10,8 +10,10 @@ apiLabel: words-api
 apiPort: 8080
 apiSvcPort: 8080
 apiReplicas: 5
+apiImage: twiceaday/k8s-wordsmith-api:master
 dbName: db
 dbLabel: words-db
 dbPort: 5432
 dbSvcPort: 5432
 dbReplicas: 1
+dbImage: twiceaday/k8s-wordsmith-db:master
