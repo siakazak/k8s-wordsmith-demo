@@ -9,7 +9,7 @@ metadata:
 spec:
   tls:
   - hosts:
-    - words.skazak.playpit.by
+    - words-app.skazak.playpit.by
     secretName: words-tls
   rules:
   - host: words-app.skazak.playpit.by
